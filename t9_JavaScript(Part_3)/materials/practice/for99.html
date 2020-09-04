@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<style>
+		table,
+		td {
+			border: 1px solid black;
+		}
+	</style>
+</head>
+
+<body>
+	<p> 99乘法</p>
+	<table id="myTable">
+	</table>
+
+	<script>
+
+		var table = document.getElementById("myTable");
+
+		for (var i = 1; i <= 9; i++) {
+			//var row = table.insertRow(-1);
+			for (var j = 1; j <= 9; j++) {
+				//   var cell = row.insertCell(-1);
+				//   cell.innerHTML = i + "*" + j + "=" + i*j;		 
+				//document.write(i + "*" + j + "=" + i*j+" ");
+			}
+			//document.write("<br>");			
+		}
+// var retStrAll="";
+// for(j=1;j<= 9;j++)
+//    {
+//    var retStr ="<tr>";
+//    for(i=1;i<= 9;i++)
+//      {  
+// 		 retStr = retStr + "<td>" + i + "*" + j + "=" + i * j+ "</td>";
+//     }
+//      retStr = retStr + "</tr>";
+// 	//alert(retStr);
+// 	retStrAll = retStrAll + retStr;
+//    }
+//  table.innerHTML = retStrAll;
+
+	</script>
+
+</body>
+
+</html>
+
+<!-- 
+do while 範例
+var j=1;
+var retStrAll ="";
+do
+{	
+	var retStr ="<tr>";
+   for(i=1;i<= 9;i++)
+     {  retStr = retStr + "<td>" + i + "*" + j + "=" + i * j+ "</td>";
+       }
+     retStr = retStr + "</tr>";
+	//alert(retStr);
+	retStrAll = retStrAll + retStr;
+	j++;
+}while(j<=9);
+table.innerHTML = retStrAll; -->

@@ -1,0 +1,49 @@
+<html>
+
+    
+    <body>
+        <p>Press a key inside the text field to set a red background color.</p>
+        
+        病人姓名:<input type="text" id="pname">
+        身分證:<input type="text" id="pid">
+        症狀:<textarea id="pcondition" placeholder="輸入症狀"></textarea>    
+        <button id="btn_send" onclick="send()">送出</button>
+        <script>
+            function send()
+            {
+                var pname=document.getElementById("pname").value;
+                var touppname=pname.toUpperCase();  
+                var pid=document.getElementById("pid").value;
+                var touppid=pid.toUpperCase(); 
+                var pcondition=document.getElementById("pcondition").value;
+                var find=pcondition.indexOf("發燒");
+                if(find>0)
+                {
+                    var result=pcondition.replace("學生","student");
+                    alert(touppname+"\t"+touppid+" 很危險,\n要檢查\n"+result);
+                }
+                else
+                {
+                    alert(touppname+"\t"+touppid+" 很健康不用檢查");
+                }
+
+                
+
+            }
+        //     function del() 
+        //     { 
+        //     var msg = "您真的確定要刪除嗎？\n\n請確認！"; 
+        //     if (confirm(msg)==true)
+        //     { 
+        //         alert("確定");
+        //         return true;
+        //      }
+        //     else
+        //     { 
+        //         alert("取消");
+        //         return false; 
+        //     } 
+        // }
+            </script>
+        </body>
+    </html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <title>計算機範例</title>
+  <head> </head>
+  <body>
+    數字1
+    <input type="number" id="num1" />
+    <select name="operation" id="op_num">
+      <option value="1">+</option>
+      <option value="2">-</option>
+      <option value="3">x</option>
+      <option value="4">/</option>
+    </select>
+    數字2
+    <input id="num2" />
+
+    <button onclick="calculator()">計算</button>
+  </body>
+</html>
+
+<script>
+  //  https://www.w3schools.com/jsref/jsref_operators.asp
+
+  function calculator() {
+    var num1, num2;
+    num1 = parseInt(document.getElementById("num1").value);
+    num2 = parseInt(document.getElementById("num2").value);
+
+    // if (isNaN(num1) || isNaN(num2)) {
+    //   alert("不符合規則,請輸入數字~");
+    // } else {
+    //  operator_num(num1, num2);
+    // }
+    var operation;
+    var total = 0;
+    operation = document.getElementById("op_num").value;
+    if (operation == 1) {
+      total = num1 + num2;
+    } else if (operation == 2) {
+      total = num1 - num2;
+    } else if (operation == 3) {
+      total = num1 * num2;
+    } else if (operation == 4) {
+      total = num1 / num2;
+    }
+    alert("計算結果:" + total);
+
+  }
+  
+</script>
+
+<!-- 
+練習一 將計算結果獨立出一個函式
+練習二 加上Confirm dialog
+練習三 改寫成Switch case -->

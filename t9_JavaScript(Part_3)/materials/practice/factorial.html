@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<script>
+
+function result(n)
+{
+    var result=factorial(n);
+
+    alert(result);
+}
+function factorial(n) {
+    if (n === 0) {
+        return 1;
+    }
+    console.log(n+"*"+"factorial=("+(n-1)+")");
+    
+    return n * factorial(n - 1);
+}
+    </script>
+</head>
+<body>
+
+<button onclick="result(3)">結果</button>
+
+</body>
+</html>

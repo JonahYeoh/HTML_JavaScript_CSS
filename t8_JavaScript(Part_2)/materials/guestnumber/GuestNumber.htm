@@ -1,0 +1,78 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <title>猜數字遊戲</title>
+</head>
+<script>
+
+    var i = 0;
+    var j = 0;
+    var counter=0;
+    //重新設定數字  https://www.w3schools.com/js/js_math.asp
+    function reset() {
+        console.log("重新設定數字");
+        i = Math.floor((Math.random() * 100) + 1);
+        document.getElementById("set_number").value = i;
+        document.getElementById("set_number").style.display = 'none';
+        //alert(i);
+        j = 1;
+    }
+    //顯示亂數
+    function displayNumber() {
+        console.log("顯示亂數");
+        var set_number = document.getElementById("set_number");
+        set_number.innerHTML = i.toString();
+        set_number.style.display = 'block';
+    }
+    //判斷結果
+
+    function number() {
+        counter++;
+        console.log("判斷結果");
+        var guest_number = document.getElementById("answer").value;
+        if(counter<3)
+        {
+        if (j == 0) {
+            alert("Please set number first!!!");
+        }
+        else if (guest_number > 100 || guest_number < 0) {
+            alert("The Range is 1 - 100 !");
+        }
+        else if (guest_number == i) {
+            alert("BINGO~~~~~");
+        }
+        else if (guest_number > i) {
+            alert("TOO BIGGGGGG!");
+        }
+        else if (guest_number < i) {
+            alert("too small...");
+        }
+        else {
+            alert("ERROR");
+        }
+    }
+    else
+    {
+        alert("只能猜三次，你不能猜了～");
+    }
+    }
+</script>
+
+<body>
+    
+    <table>
+        <tr>
+            <td><button onclick="reset()">SET NUMBER</button>　</td>
+            <td><label id="set_number" style="display: none"></label></td>
+            <td><button onclick="displayNumber()">顯示猜的數字</button></td>
+        </tr>
+        <tr>
+            <td colspan="2"><input id="answer"></input></td>
+            <td><button onclick="number()">Submit</button></td>
+        </tr>
+
+    </table>
+</body>
+
+</html>

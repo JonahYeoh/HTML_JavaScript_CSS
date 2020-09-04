@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>網頁標題</title></head>
+
+<body>您所要在瀏覽器顯示的內容	
+		<script>
+				function changecolor(item) {
+				console.log('log_changecolor');
+				item.style.fontSize="64px";
+				item.style.color="red";
+				}
+				function change2(item) {
+				console.log('log_changecolor');
+				item.style.fontSize="35px";
+				item.style.color="blue";
+				}
+								
+						</script> 
+				
+				
+				<h2>What Can JavaScript Do?</h2>
+				
+				<p onmouseover="changecolor(this)" onmouseout="change2(this)" >JavaScript can change HTML attribute values.</p>
+				
+				<p id="demo" >JavaScript can change the style of an HTML element.</p>
+				
+				<button type="button" onclick="document.getElementById('demo').style.fontSize='35px'">改變字型大小</button>
+				
+				<button type="button" onclick="document.getElementById('demo').style.display='none'">隱藏文字</button>
+				
+				<button type="button" onclick="document.getElementById('demo').style.display='block'">顯示文字</button>
+				
+				
+				<p>改變圖片屬性</p>
+				
+				<button onclick="document.getElementById('myImage').src='img/pic_bulbon.gif'">Turn on the light</button>
+				
+				<img id="myImage" src="img/pic_bulboff.gif" style="width:100px">
+				
+				<button onclick="document.getElementById('myImage').src='img/pic_bulboff.gif'">Turn off the light</button>
+
+</body>
+
+</html>
+
+<!-- 範例練習 -->
+<!-- <!DOCTYPE html>
+
+<script>
+document.write("1 Hello!JavaScript!");
+
+</script>-->
+
+
