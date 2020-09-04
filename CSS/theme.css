@@ -1,0 +1,18 @@
+body {
+    font-family: cursive;
+    background-color: rgba(241, 227, 238, 0.342);
+}
+
+#main_container {
+    width: 800px;
+    margin-top: 100px;
+    margin-left: auto;
+    margin-right: auto;
+    border: 1px groove blueviolet;
+    padding: 10px;
+}
+
+h1 {
+    font-weight: bolder;
+    color: red;
+}
