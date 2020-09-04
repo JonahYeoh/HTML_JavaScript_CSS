@@ -1,0 +1,103 @@
+<!DOCTYPE>
+<html>
+
+<head>
+    <style>
+        th,
+        td {
+            padding: 8px;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <h1>初診掛號申請單Registration Form</h1>
+    </div>
+    <form method="post" action="https://www.w3schools.com/action_page.php" target="_self">
+        <table border="1">
+            <tr>
+                <td>
+                    姓名
+                    <input id="Name" type="text" name="Name">
+                </td>
+                <td>
+                    性別
+                    <input type="radio" name="Sex" value="Male"> 男
+                    <input type="radio" name="Sex" value="Female"> 女
+                    <input type="radio" name="Sex" value="Other"> 其他
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    身分證字號
+                    <input id="ID" type="text" name="ID">
+                <td>
+                    出生地
+                    <input id="Nationality" type="text" name="Nationality">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    出生日期
+                    <input type="date" name="Birth">
+                <td>
+                    電子郵件
+                    <input type="text" name="Email">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    電話
+                    <input type="text" name="Phone">
+                </td>
+                <td>
+                    手機
+                    <input type="text" name="CellPhone">
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    地址
+                    <input type="text" name="Address" size="50">
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    是否同意預約看診或排檢，本院以電子郵件或簡訊提醒您？
+                    <input type="radio" name="Alert" value="Male"> 男
+                    <input type="radio" name="Alert" value="Female"> 女
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    吸菸習慣
+                    <input type="radio" id="Never" name="Smoking" value="Never"> 從不抽菸
+                    <input type="radio" id="Before" name="Smoking" value="Before"> 以前抽現在已不抽
+                    <input type="radio" id="Have" name="Smoking" value="Have"> 抽菸 支/天，共 年
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    病史
+                    <input type="checkbox" name="History1" value="Hypertension"> 高血壓
+                    <input type="checkbox" name="History2" value="Diabetes"> 糖尿病
+                    <input type="checkbox" name="History3" value="HeartDisease"> 心臟病
+                </td>
+            </tr>
+        </table>
+        <input type="submit">
+    </form>
+
+    <button type="button" onclick="submit()" style="display: none;">提交</button>
+    <p id="demo"></p>
+
+</body>
+
+<script>
+    function submit() {
+        document.getElementById("demo").innerText = document.getElementById("Name").value;
+    }
+</script>
+
+</html>

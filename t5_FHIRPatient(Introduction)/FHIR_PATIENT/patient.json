@@ -1,0 +1,156 @@
+{
+    "resourceType": "Patient",
+    "id": "ax98234",
+    "text": {
+        "status": "generated"
+    },
+    "identifier": [{
+            "use": "usual",
+            "type": {
+                "coding": [{
+                    "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+                    "code": "MR"
+                }]
+            },
+            "assigner": {
+                "display": "Health Care for Christ"
+            },
+            "value": "003"
+        },
+        {
+            "use": "official",
+            "type": {
+                "text": "random",
+                "coding": [{
+                    "system": "https://www.ris.gov.tw/app/en/3051",
+                    "code": "PPN"
+                }]
+            },
+            "assigner": {
+                "display": "Department Of Household Registration"
+            },
+            "system": "https://www.ris.gov.tw/app/en/3051",
+            "value": "AX9001234"
+        },
+        {
+            "use": "official",
+            "type": {
+                "coding": [{
+                    "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+                    "code": "NIIP"
+                }]
+            },
+            "assigner": {
+                "display": "Ministry Of Health Taiwan"
+            },
+            "system": "https://www.mohw.gov.tw/mp-2.html",
+            "value": "1234"
+        }
+    ],
+    "active": "true",
+    "name": [{
+        "use": "official",
+        "family": "",
+        "given": [
+            ""
+        ],
+        "prefix": "mr",
+        "text": ""
+    }],
+    "telecom": [{
+            "system": "phone",
+            "value": "",
+            "use": "mobile"
+        },
+        {
+            "system": "phone",
+            "value": "",
+            "use": "home"
+        },
+        {
+            "system": "email",
+            "value": "",
+            "use": "mobile"
+        }
+    ],
+    "gender": "male",
+    "maritalStatus": {
+        "coding": [{
+            "system": "http://terminology.hl7.org/CodeSystem/v3-MaritalStatus",
+            "code": "M"
+        }]
+    },
+    "contact": [{
+        "relationship": "N",
+        "name": [{
+            "use": "official",
+            "family": "",
+            "given": [
+                ""
+            ]
+        }],
+        "telecom": [{
+            "system": "phone",
+            "value": "",
+            "use": "mobile"
+        }],
+        "gender": "male"
+    }],
+    "communication": [{
+            "language": {
+                "coding": [{
+                    "system": "urn:ietf:bcp:47",
+                    "code": "zh-TW",
+                    "display": "Chinese (Taiwan)"
+                }]
+            },
+            "preferred": false
+        },
+        {
+            "language": {
+                "coding": [{
+                    "system": "urn:ietf:bcp:47",
+                    "code": "",
+                    "display": ""
+                }]
+            },
+            "preferred": false
+        }
+    ],
+    "birthDate": "1974-12-25",
+    "deceasedBoolean": "false",
+    "address": [{
+            "use": "home",
+            "text": "demo",
+            "line": [
+                "demo"
+            ],
+            "city": "demo",
+            "postalCode": "99999"
+        },
+        {
+            "use": "work",
+            "text": "demo",
+            "line": [
+                "demo"
+            ],
+            "city": "demo",
+            "postalCode": "demo"
+        }
+    ],
+    "extension": [{
+        "url": "http://hl7.org/fhir/registry",
+        "extension": [{
+            "url": "http://terminology.hl7.org/CodeSystem/v3-Race",
+            "valueCodeableConcept": {
+                "coding": [{
+                    "system": "http://terminology.hl7.org/CodeSystem/v3-Race",
+                    "code": "1002-5"
+                }]
+            }
+        }]
+    }],
+    "managingOrganization": {
+        "reference": "Organization/jonah"
+    }
+}

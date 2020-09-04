@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get Patient</title>
+    <link rel="stylesheet" type="text/css" href="/t5_FHIRPatient(Introduction)/FHIR_PATIENT/CSS/patient_portal.css" />
+    <style>
+        input[type="button"] {
+            width: 200px;
+        }
+        
+        .main_container {
+            padding: 20px;
+        }
+    </style>
+    <!--JavaScript程式-->
+    <script src="/t5_FHIRPatient(Introduction)/FHIR_PATIENT/JS/patient_portal.js"></script>
+    <script>
+        function query_patient() {
+            // server url
+            var url = "https://fhir.dicom.tw/fhir/Patient?";
+            // query parameters
+            var _id = document.getElementById("fhir_id").value;
+            var name_given = document.getElementById("fhir_name").value;
+            if (_id != "") {
+                url += "_id=" + _id;
+            }
+            if (name_given != "")
+                url += "&given:contains=" + name_given;
+            // call function
+            HTTPGetData(url, display);
+        }
+
+        function display(response) {
+            var panel = document.getElementById("display_panel");
+            document.getElementById("display_area").value = response;
+            panel.style.display = "block";
+        }
+    </script>
+</head>
+
+<body>
+    <div class="main_container">
+        <span>FHIR ID : </span> &nbsp; <input type="text" id="fhir_id" size="50" />
+        <br/>
+        <span>Given Name : </span> &nbsp; <input type="text" id="fhir_name" size="50" />
+        <br/>
+        <input type="button" onclick="query_patient();" value="Query" />
+        <hr />
+        <div id="display_panel" style="display:none;">
+            <textarea id="display_area" style="width:800px; height:800px"></textarea>
+            <input type="button" onclick="document.getElementById('display_panel').style.display='none'" value="close" />
+        </div>
+    </div>
+</body>
+
+</html>

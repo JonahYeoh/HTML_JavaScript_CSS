@@ -1,0 +1,46 @@
+<!DOCTYPE>
+<html>
+
+<head>
+</head>
+
+<body>
+    <form method="post" action="https://www.w3schools.com/action_page.php" target="_self">
+        姓名:
+        <input type="text" name="name" size="10"><br>
+        職業:<select name="work">
+            <option value="1" selected>學生
+            <option value="2">老師
+            <option value="3">其他
+        </select><br>
+        性別:
+        <input type="radio" name="sex" value="m">男
+        <input type="radio" name="sex" value="f">女<br>
+        讀書時間:
+        <input type="radio" name="bef" value="1">多
+        <input type="radio" name="bef" value="2">普通
+        <input type="radio" name="bef" value="3">少<br>
+        興趣:
+        <input type="checkbox" name="inte1" value="1">打球
+        <input type="checkbox" name="inte2" value="2">爬山
+        <input type="checkbox" name="inte3" value="3">電腦<br>
+        其他:
+        <br>
+        <textarea name="suggest"></textarea><br>
+        <input type="reset" value="清除">
+        <input type="submit" value="Login">
+
+    </form>
+
+    <button type="button" onclick="submit()" style="display: none;">提交</button>
+    <p id="demo"></p>
+
+</body>
+
+<script>
+    function submit() {
+        document.getElementById("demo").innerText = document.getElementById("Name").value;
+    }
+</script>
+
+</html>

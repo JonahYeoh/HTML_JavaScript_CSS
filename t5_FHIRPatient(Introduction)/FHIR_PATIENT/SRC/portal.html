@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LOG-IN PORTAL</title>
+    <!--字體庫-->
+    <link href='https://fonts.googleapis.com/css?family=Andika' rel='stylesheet'>
+    <!--ICON-->
+    <link rel="icon" href="/t5_FHIRPatient(Introduction)/FHIR_PATIENT/MEDIA/icon_FHIR.svg" sizes="16x16" type="image/svg" />
+    <!--漾式設計-->
+    <link rel="stylesheet" type="text/css" href="/t5_FHIRPatient(Introduction)/FHIR_PATIENT/CSS/portal.css">
+    <!--JavaScript程式-->
+    <script src="/t5_FHIRPatient(Introduction)/FHIR_PATIENT/JS/portal.js"></script>
+    <script src="/t5_FHIRPatient(Introduction)/FHIR_PATIENT/JS/Cookie.js"></script>
+    <script>
+        /*登入*/
+        function login() {
+            var url = "http://hapi.fhir.org/baseR4/Patient";
+            var acc = document.getElementById("acc").value;
+            var given = document.getElementById("name").value;
+            if (acc == "" || given == "") {
+                alert("輸入不完整");
+                return undefined
+            }
+            url = url + "?organization=jonah&&given:exact=" + given;
+            alert("查詢句 : " + url);
+            /*呼叫 /JS/portal.js中的function*/
+            HTTPGetData(url, acc, "main.html");
+        }
+        /*清空輸入欄位*/
+        function clear_input() {
+            document.getElementById("acc").value = "";
+            document.getElementById("name").value = "";
+        }
+
+        function sign_up() {
+            window.open("patient_portal.html");
+        }
+
+        function create_cookies(name, account) {
+            setCookie("name", name, 1);
+            setCookie("account", account, 1);
+        }
+    </script>
+</head>
+
+<body>
+    <div class="main_container">
+        <img src="/t5_FHIRPatient(Introduction)/FHIR_PATIENT/MEDIA/icon_FHIR.svg" class="avatar">
+        <form>
+            <p>Account</p>
+            <input type="text" id="acc" maxlength="20" />
+            <p>Name</p>
+            <input type="text" id="name" maxlength="50" />
+            <br />
+            <div class="btn_row">
+                <input type="button" class="btn" value="Login" onclick="login();" />
+                <input type="button" class="btn" value="Clear" onclick="clear_input();" />
+                <input type="button" class="btn" value="Sign-Up" onclick="sign_up();" />
+            </div>
+
+        </form>
+    </div>
+</body>
+
+</html>

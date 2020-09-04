@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PATIENT PORTAL</title>
+    <!--字體庫-->
+    <link href='https://fonts.googleapis.com/css?family=Andika' rel='stylesheet'>
+    <!--ICON-->
+    <link rel="icon" href="/t5_FHIRPatient(Introduction)/FHIR_PATIENT/MEDIA/human_icon.png" sizes="16x16" type="image/png" />
+    <!--漾式設計-->
+    <link rel="stylesheet" type="text/css" href="/t5_FHIRPatient(Introduction)/FHIR_PATIENT/CSS/patient_portal.css" />
+    <!--JavaScript程式-->
+    <script src="/t5_FHIRPatient(Introduction)/FHIR_PATIENT/JS/patient_portal.js"></script>
+    <script>
+        function register_patient() {
+            post_patient();
+        }
+
+        function get_text_value(id) {
+            return document.getElementById(id).value;
+        }
+
+        function get_radio_value(name) {
+            var group = document.getElementsByName(name);
+            if (group.length == 0) // when incorrect name was provided
+                return undefined;
+            for (i = 0; i < group.length; i++) {
+                if (group[i].checked)
+                    return group[i].value;
+            }
+            return undefined; // will never execute because default selection was provided
+        }
+
+        function get_dropdown_value(id) {
+            var dropdown_list = document.getElementById(id);
+            if (dropdown_list.length == 0) // when incorrect name was provided
+                return undefined;
+            for (i = 0; i < dropdown_list.length; i++) {
+                if (dropdown_list[i].selected)
+                    return dropdown_list[i].value;
+            }
+            return undefined; // will never execute because default selection was provided
+        }
+
+        function date_padding(value) {
+            if (value < 10)
+                return '0' + value;
+            else
+                return value;
+        }
+
+        function clear_input() {
+            var input_list = document.getElementsByTagName("input");
+            for (index = 0; index < input_list.length; index++) {
+                if (input_list[index].type == "text")
+                    input_list[index].value = "";
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <div class="main_container">
+        <table>
+            <tr>
+                <th>病人帳號註冊</th>
+                <th>病人帳號註冊</th>
+            </tr>
+            <tr>
+                <td valign="top" style="padding:5px;">
+                    <div id="basic_data">
+                        <label>Personal Data/個人基本資料</label>
+                        <table>
+                            <tr>
+                                <td>
+                                    <span>稱呼</span>
+                                </td>
+                                <td></td>
+                                <td>
+                                    <select id="title">
+                                        <option id="title0" value="mr">Mr.</option>
+                                        <option id="title1" value="mrs">Mrs.</option>
+                                        <option id="title2" value="miss">Miss.</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <span>姓名</span>
+                                </td>
+                                <td>
+
+                                </td>
+                                <td>
+                                    <input type="text" id="name" maxlength="50" required/>
+                                </td>
+                            </tr>
+                            <!--
+                        <span>國籍</span>
+                        <select>
+                            <option>pass</option>
+                        </select>
+                        -->
+                            <tr>
+                                <td>
+                                    <span>身分證/國際護照證號</span>
+                                </td>
+                                <td></td>
+                                <td>
+                                    <input type="text" id="passport_number" minlength="10" maxlength="10" required />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <span>生日日期</span>
+                                </td>
+                                <td></td>
+                                <td>
+                                    <input type="number" class="date_input" id="YOB" min="1900" value=2019 />
+                                    <input type="number" class="date_input" id="MOB" min="1" max="12" />
+                                    <input type="number" class="date_input" id="DOB" min="1" max="31" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <span>性別</span>
+                                </td>
+                                <td></td>
+                                <td>
+                                    <div id="gender_div">
+                                        <span class="selection"><input type="radio" name="gender" value="male" checked />男</span>
+                                        <span class="selection"><input type="radio" name="gender" value="female" />女</span>
+                                        <span class="selection"><input type="radio" name="gender" value="unknown" />其他</span>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <span>婚姻狀態</span>
+                                </td>
+                                <td></td>
+                                <td>
+                                    <select id="marital">
+                                        <option id="marital0" name="usermarital" value="M">Married</option>
+                                        <option id="marital1" name="usermarital" value="P">Polygamous</option>
+                                        <option id="marital2" name="usermarital" value="S">Never Married</option>
+                                        <option id="marital3" name="usermarital" value="D">Divorced</option>
+                                        <option id="marital4" name="usermarital" value="L">Legally Separated</option>
+                                        <option id="marital5" name="usermarital" value="T">Domestic Partner</option>
+                                        <option id="marital6" name="usermarital" value="U">Unmararried</option>
+                                        <option id="marital7" name="usermarital" value="UNK">Unknown</option>
+                                    </select>
+                                </td>
+                            </tr>
+                        </table>
+                        <br/>
+                    </div>
+                    <div id="region_data">
+                        <label>Language&Region/溝通語言與區域資料
+                        </label>
+                        <table>
+                            <tr>
+                                <td>
+                                    <span>臺灣華語</span>
+                                </td>
+                                <td></td>
+                                <td>
+                                    <div id="language_div">
+                                        <span class="selection"><input type="radio" id="lang0y" name="userCommunication0" value="yes" checked/>是</span>
+                                        <span class="selection"><input type="radio" id="lang0n" name="userCommunication0" value="no" />否</span>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <span>其他語言</span>
+                                </td>
+                                <td></td>
+                                <td>
+                                    <select id="communicationLanguage">
+                                        <option id="lang0" name="lang" value="----">----</option>
+                                        <option id="lang1" name="lang" value="ar">Arabic</option>
+                                        <option id="lang2" name="lang" value="bn">孟加拉语</option>
+                                        <option id="lang3" name="lang" value="cs">捷克语</option>
+                                        <option id="lang4" name="lang" value="da">丹麦语</option>
+                                        <option id="lang5" name="lang" value="de">德语</option>
+                                        <option id="lang6" name="lang" value="de-AT">德语 （奥地利）</option>
+                                        <option id="lang7" name="lang" value="de-CH">德语 （瑞士）</option>
+                                        <option id="lang8" name="lang" value="de-DE">德语 （德国）</option>
+                                        <option id="lang9" name="lang" value="el">希腊语</option>
+                                        <option id="lang10" name="lang" value="en">英语</option>
+                                        <option id="lang11" name="lang" value="en-AU">英语 （澳大利亚）</option>
+                                        <option id="lang12" name="lang" value="en-CA">英语 （加拿大）</option>
+                                        <option id="lang13" name="lang" value="en-GB">英语 （英国）</option>
+                                        <option id="lang14" name="lang" value="en-IN">英语 （印度）</option>
+                                        <option id="lang15" name="lang" value="en-NZ">英语 （新西兰）</option>
+                                        <option id="lang16" name="lang" value="en-SG">英语 （新加坡）</option>
+                                        <option id="lang17" name="lang" value="en-US">英语 （美国）</option>
+                                        <option id="lang18" name="lang" value="es">西班牙语</option>
+                                        <option id="lang19" name="lang" value="es-AR">西班牙语 （阿根廷）</option>
+                                        <option id="lang20" name="lang" value="es-ES">西班牙语 （西班牙）</option>
+                                        <option id="lang21" name="lang" value="es-UY">西班牙语 （乌拉圭）</option>
+                                        <option id="lang22" name="lang" value="fi">芬兰语</option>
+                                        <option id="lang23" name="lang" value="fr">法语</option>
+                                        <option id="lang24" name="lang" value="fr-BE">French(Belgium)</option>
+                                        <option id="lang25" name="lang" value="fr-CH">法语 （比利时）</option>
+                                        <option id="lang26" name="lang" value="fr-FR">法语 （瑞士）</option>
+                                        <option id="lang27" name="lang" value="fy">弗里士兰语</option>
+                                        <option id="lang28" name="lang" value="fy-NL">弗里士兰语（荷兰）</option>
+                                        <option id="lang29" name="lang" value="hi">Hindi</option>
+                                        <option id="lang30" name="lang" value="hr">克罗地亚语</option>
+                                        <option id="lang31" name="lang" value="it">意大利语</option>
+                                        <option id="lang32" name="lang" value="it-CH">意大利语 （瑞士）</option>
+                                        <option id="lang33" name="lang" value="it-IT">意大利语 （意大利）</option>
+                                        <option id="lang34" name="lang" value="ja">日语</option>
+                                        <option id="lang35" name="lang" value="ko">朝鲜语</option>
+                                        <option id="lang36" name="lang" value="nl">荷兰语</option>
+                                        <option id="lang37" name="lang" value="nl-BE">荷兰语 （比利时）</option>
+                                        <option id="lang38" name="lang" value="nl-NL">荷兰语 （荷兰）</option>
+                                        <option id="lang39" name="lang" value="no">挪威语</option>
+                                        <option id="lang40" name="lang" value="no-NO">挪威语 （挪威）</option>
+                                        <option id="lang41" name="lang" value="pa">Punjabi</option>
+                                        <option id="lang42" name="lang" value="pt">葡萄牙语</option>
+                                        <option id="lang43" name="lang" value="pt-BR">葡萄牙语 （巴西）</option>
+                                        <option id="lang44" name="lang" value="ru">俄语</option>
+                                        <option id="lang45" name="lang" value="ru-RU">俄语 （俄罗斯）</option>
+                                        <option id="lang46" name="lang" value="sr">塞尔维亚语</option>
+                                        <option id="lang47" name="lang" value="sr-RS">塞尔维亚语 （塞尔维亚）</option>
+                                        <option id="lang48" name="lang" value="sv">瑞典语</option>
+                                        <option id="lang49" name="lang" value="sv-SE">瑞典语 （瑞典）</option>
+                                        <option id="lang50" name="lang" value="te">泰卢固语</option>
+                                        <option id="lang51" name="lang" value="zh">中文</option>
+                                        <option id="lang52" name="lang" value="zh-CN">中文 （中国）</option>
+                                        <option id="lang53" name="lang" value="zh-HK">中文 （香港特别行政区）</option>
+                                        <option id="lang54" name="lang" value="zh-SG">中文 （新加坡）</option>
+                                        <option id="lang55" name="lang" value="zh-TW">中文 （台湾）</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <span>Race/種族</span>
+                                </td>
+                                <td></td>
+                                <td>
+                                    <select id="race">
+                                        <option id="race836" name="race" value="2035-4">Taiwanese</option>
+                                        <option id="race835" name="race" value="2034-7">Chinese</option>
+                                        <option id="race833" name="race" value="2032-1">Burmese</option>
+                                        <option id="race834" name="race" value="2033-9">Cambodian</option>
+                                        <option id="race852" name="race" value="2051-1">Singaporean</option>
+                                        <option id="race856" name="race" value="2058-6">African American</option>
+                                        <option id="race839" name="race" value="2038-8">Indonesian</option>
+                                        <option id="race840" name="race" value="2039-6">Japanese</option>
+                                        <option id="race841" name="race" value="2040-4">Korean</option>
+                                        <option id="race843" name="race" value="2042-0">Malaysian</option>
+                                        <option id="race847" name="race" value="2046-1">Thai</option>
+                                        <option id="race848" name="race" value="2047-9">Vietnamese</option>
+                                    </select>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </td>
+                <td>
+                    <div id="contacts_data" valign="top" style="padding:5px;">
+                        <label>Telecommunication/聯絡方式</label>
+                        <span>Personal/個人</span>
+                        <table>
+                            <tr>
+                                <td>
+                                    <span>Mobile</span>
+                                </td>
+                                <td></td>
+                                <td>
+                                    <input type="text" id="telecom_mobile" name="telecom" placeholder="+886" maxlength="11" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <span>Home</span>
+                                </td>
+                                <td></td>
+                                <td>
+                                    <input type="text" id="telecom_home" name="telecom" maxlength="11" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <span>E-Mail</span>
+                                </td>
+                                <td></td>
+                                <td>
+                                    <input type="email" id="telecom_email" name="telecom" />
+                                </td>
+                            </tr>
+                        </table>
+                        <span>Contact Person/聯絡人</span>
+                        <table>
+                            <tr>
+                                <td>
+                                    <span>姓名</span>
+                                </td>
+                                <td></td>
+                                <td>
+                                    <input type="text" id="telecom_dependent_name" name="telecom" maxlength="50" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <span>關係</span>
+                                </td>
+                                <td></td>
+                                <td>
+                                    <select id="dependent_rel">
+                                        <option id="rel0" name="contactType" value="C">Emergency Contact</option>
+                                        <option id="rel1" name="contactType" value="E">Employer</option>
+                                        <option id="rel2" name="contactType" value="F">Federal Agency</option>
+                                        <option id="rel3" name="contactType" value="I">Insurance Company</option>
+                                        <option id="rel4" name="contactType" value="N">Next-of-Kin</option>
+                                        <option id="rel5" name="contactType" value="S">State Agency</option>
+                                        <option id="rel6" name="contactType" value="U">Unknown</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <span>性別</span>
+                                </td>
+                                <td></td>
+                                <td>
+                                    <div id="gender_div">
+                                        <span class="selection"><input type="radio" name="dependent_gender" value="male" checked />男</span>
+                                        <span class="selection"><input type="radio" name="dependent_gender" value="female" />女</span>
+                                        <span class="selection"><input type="radio" name="dependent_gender" value="unknow" />其他</span>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <span>手機號碼</span>
+                                </td>
+                                <td></td>
+                                <td>
+                                    <input type="text" id="telecom_dependent_mobile" name="telecom" maxlength="11" />
+                                </td>
+                            </tr>
+                        </table>
+                        <span>Address/地址</span>
+                        <table>
+                            <tr>
+                                <td>
+                                    <span>居家</span>
+                                </td>
+                                <td></td>
+                                <td>
+                                    <div id="home_address_div">
+                                        <input type="text" id="home_address_line" placeholder="街道" />
+                                        <input type="text" id="home_address_postal" placeholder="郵遞區號" />
+                                        <input type="text" id="home_address_city" placeholder="市" />
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <span>辦公</span>
+                                </td>
+                                <td></td>
+                                <td>
+                                    <div id="work_address_div">
+                                        <input type="text" id="work_address_line" placeholder="街道" />
+                                        <input type="text" id="work_address_postal" placeholder="郵遞區號" />
+                                        <input type="text" id="work_address_city" placeholder="市" />
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" align="center">
+                    <input type="button" onclick="register_patient();" value="提交" />
+                    <input type="button" onclick="clear_input();" value="清空" />
+                </td>
+            </tr>
+        </table>
+    </div>
+</body>
+
+</html>

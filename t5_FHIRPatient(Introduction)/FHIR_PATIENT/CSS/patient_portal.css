@@ -1,0 +1,90 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: RGB(255, 242, 233);
+    overflow: hidden;
+    font-family: 'Andika';
+    font-size: 14px;
+}
+
+.main_container {
+    background-color: RGB(255, 221, 200);
+    width: 80%;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.main_container table,
+.main_container table tr,
+.main_container table tr th {
+    border-collapse: collapse;
+    height: 0px;
+}
+
+.main_container table {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.main_container table tr th {
+    width: 50%;
+}
+
+.main_container table tr td {
+    border-collapse: collapse;
+    height: 10px;
+}
+
+.main_container label {
+    font-weight: bold;
+    display: block;
+}
+
+.main_container span {
+    height: 15px;
+    font-size: 10px;
+    display: block;
+    margin-left: 5px;
+    float: left;
+}
+
+.main_container input[type="text"],
+.main_container input[type="email"],
+.main_container select {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border: none;
+    border-bottom: 1px solid blue;
+    height: 15px;
+    width: 120px;
+    font-size: 10px;
+    background: transparent;
+}
+
+.main_container #gender_div,
+.regional_date #language_div {
+    align-content: center;
+    display: block;
+    margin-left: 5px;
+}
+
+.main_container .date_input {
+    margin-left: 5px;
+    width: 40px;
+    font-size: 10px;
+}
+
+.main_container table tr td:nth-child(1) {
+    width: 40%;
+}
+
+.main_container table tr td:nth-child(2) {
+    width: 10%;
+}
+
+.main_container table tr td:nth-child(3) {
+    width: 50%;
+}
