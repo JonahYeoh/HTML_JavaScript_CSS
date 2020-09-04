@@ -1,37 +1,24 @@
-## Welcome to GitHub Pages
+# 課程目的 #
+入門學習 JavaScript 程式及 FHIR 健康醫療資訊標準；學會使用 JavaScript 程式處理 FHIR 病人、問題狀況、生理量測、檢驗檢查結果等資訊，學會JavaScript 程 式 HTML FHRM 表單輸入、資料表格呈現等功能，並體驗設計醫護表單使用介面。
 
-You can use the [editor on GitHub](https://github.com/JonahYeoh/HTML_JavaScript_CSS/edit/master/index.md) to maintain and preview the content for your website in Markdown files.
+# 上課方式 : 視訊討論及線上教材 #
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
-
-### Markdown
-
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
-
-```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/JonahYeoh/HTML_JavaScript_CSS/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+# 課程內容 #
+1. [Web 技術簡介: 概述網頁前後端架構及課程應用](#)
+1. [VS code 安裝及使用](index.html)
+1. [html 簡介 1 - 基本標籤]()
+1. [html 簡介 2 - 網頁表單]()
+1. [FHIR 病人基本資料新增及查詢網頁程式]()
+1. [Javascript 簡介]()
+1. [Javascript 基礎語法1:型別、變數、與運算子]()
+1. [Javascript 基礎語法2:if 條件判斷及 for 迴圈]()
+1. [Javascript 基礎語法3:函式及 事件]()
+1. [Javascript 基礎語法4:JS array 及 JSON 物件]()
+1. [JS 程式取得及設定 FHIR 病人資料網頁表單]()
+1. [FHIR 病人問題狀況及檢測資訊新增及查詢程式範例]()
+1. [FHIR 問卷程式範例]()
+1. [FHIR 醫護表單應用開發討論]()
+1. [HTTP 及 FHIR API 1]()
+1. [HTTP 及 FHIR API 2]()
+1. [FHIR 網路掛號、就醫、及檢查流程 1]()
+1. [FHIR 網路掛號、就醫、及檢查流程 2]()
