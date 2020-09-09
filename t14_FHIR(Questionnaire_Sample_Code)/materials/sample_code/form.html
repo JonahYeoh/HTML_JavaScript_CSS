@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Survey</title>
+    <!-- CSS -->
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <!-- JavaScript -->
+    <script>
+        /* 送出資料，這裡沒有實作送出機制，暫用alert方法表示　*/
+        function send_out() {
+            /* 下面抓去各個輸入項的值 */
+            var os_list = document.getElementsByName("OS");
+            var os_choice;
+            os_list.forEach(function(os) {
+                if (os.checked) {
+                    os_choice = os.value;
+                }
+            });
+            var env = document.getElementById("env").value;
+            var exp = document.getElementById("exp").value;
+            /* 整理資料 */
+            var str = "";
+            str += "作業系統 : " + os_choice + "\n";
+            str += "開發環境 : " + env + "\n";
+            str += "開發經驗 : " + exp + "年";
+            /* 宋楚資料 */
+            alert(str);
+        }
+    </script>
+</head>
+
+<body>
+    <form id="form_1">
+        <h3>程式開發者推甚麼???</h3>
+        <ol>
+            <li>
+                <label>作業系統</label> &nbsp;
+                <input type="radio" name="OS" value="MAC OS" checked/>Mac OS
+                <input type="radio" name="OS" value="Windows" />Windows
+                <input type="radio" name="OS" value="Linux" />Linux
+            </li>
+            <li>
+                <label>開發環境</label>
+                <select id="env">
+                    <option value="Notepad">Notepad</option>
+                    <option value="Visual Studio Code">Visual Studio Code</option>
+                    <option value="notepad++">notepad++</option>
+                    <option value="Visual Studio">Visual Studio</option>
+                    <option value="Vim">Vim</option>
+                </select>
+            </li>
+            <li>
+                <label>開發經驗(年)</label> &nbsp; <input type="number" id="exp" min="1" />
+            </li>
+        </ol>
+
+        <hr/>
+        <input type="button" onclick="send_out()" value="提交" />
+    </form>
+    <p>這一個程式雖然看起來簡單，但是彈性低．若有一百種問卷就得寫一百份．</p>
+</body>
+
+</html>

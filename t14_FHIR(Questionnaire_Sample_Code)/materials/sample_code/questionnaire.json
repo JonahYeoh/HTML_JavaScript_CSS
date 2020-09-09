@@ -1,0 +1,72 @@
+{
+    "resourceType": "Questionnaire",
+    "title": "程式開發者推甚麼???",
+    "status": "active",
+    "subjectType": ["Patient"],
+    "publisher": "Happy Jonah",
+    "contact": [{
+        "name": "Mr. Jonah",
+        "telecom": [{
+            "system": "email",
+            "value": "dev_jonah@faith.com"
+        }]
+    }],
+    "approvalDate": "2020-01-01",
+    "lastReviewDate": "2020-02-02",
+    "effectivePeriod": {
+        "start": "2020-02-02"
+    },
+    "item": [{
+            "linkId": "1.0",
+            "text": "作業系統",
+            "type": "choice",
+            "required": "true",
+            "answerOption": [{
+                "extension": [{
+                    "valueString": "MAC OS"
+                }]
+            }, {
+                "extension": [{
+                    "valueString": "Windows"
+                }]
+            }, {
+                "extension": [{
+                    "valueString": "Linux"
+                }]
+            }]
+        },
+        {
+            "linkId": "2.0",
+            "text": "開發環境",
+            "type": "open-choice",
+            "required": "true",
+            "answerOption": [{
+                "extension": [{
+                    "valueString": "Notepad"
+                }]
+            }, {
+                "extension": [{
+                    "valueString": "Visual Studio Code"
+                }]
+            }, {
+                "extension": [{
+                    "valueString": "notepad++"
+                }]
+            }, {
+                "extension": [{
+                    "valueString": "Visual Studio"
+                }]
+            }, {
+                "extension": [{
+                    "valueString": "Vim"
+                }]
+            }]
+        },
+        {
+            "linkId": "3.0",
+            "text": "開發經驗(年)",
+            "type": "integer",
+            "required": "true"
+        }
+    ]
+}
